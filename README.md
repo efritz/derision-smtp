@@ -17,9 +17,9 @@ fields in its payload.
 
 | Name         | Description |
 | ------------ | ----------- |
-| Recipient    | The recipient's email |
-| Subject      | The email subject (pulled from body) |
-| Body		   | The email body (raw text) |
+| recipient    | The recipient's email |
+| subject      | The email subject (pulled from body) |
+| body		   | The email body (raw text) |
 
 ## License
 
