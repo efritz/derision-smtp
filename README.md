@@ -19,7 +19,7 @@ fields in its payload.
 | ------------ | ----------- |
 | recipient    | The recipient's email |
 | subject      | The email subject (pulled from body) |
-| body		   | The email body (raw text) |
+| body	       | The email body (raw text) |
 
 ## License
 
