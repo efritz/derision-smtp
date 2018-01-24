@@ -5,7 +5,7 @@
 [![Code Coverage](http://codecov.io/github/efritz/derision-smtp/coverage.svg?branch=master)](http://codecov.io/github/efritz/derision-smtp?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/efritz/derision-smtp)](https://goreportcard.com/report/github.com/efritz/derision-smtp)
 
-A mock SMTP server which reflects its payloads to a [http://githbu.com/efritz/derision](Derision API).
+A mock SMTP server which reflects its payloads to a [Derision API](http://github.com/efritz/derision).
 
 ## Usage
 
