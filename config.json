@@ -1,0 +1,11 @@
+[
+    {
+        "request": {
+            "method": "POST",
+            "path": "/email"
+        },
+        "response": {
+            "status_code": "200"
+        }
+    }
+]
