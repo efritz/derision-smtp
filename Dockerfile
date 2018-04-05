@@ -1,5 +1,5 @@
 FROM alpine
-ADD https://github.com/efritz/derision/releases/download/0.2/derision /
+ADD https://github.com/efritz/derision/releases/download/0.3/derision /
 ADD https://github.com/efritz/derision-smtp/releases/download/0.1/derision-smtp /
 COPY entrypoint.sh .
 RUN chmod +x derision
