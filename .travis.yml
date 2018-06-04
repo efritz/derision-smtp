@@ -1,26 +1,27 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=498d1f8055beb8a8b0e10934b0102ca078fcb70f6d16c6da754a0cd44b6e729e
 language: go
-
 go:
-    - 1.9
-
+  - 1.9.x
+  - 1.10.x
+  - tip
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-    - go test -coverprofile=coverage.txt -covermode=atomic
-    - GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build
-
-after_success:
-    - bash <(curl -s https://codecov.io/bash)
-
-addons:
-    code_climate:
-        repo_token: 498d1f8055beb8a8b0e10934b0102ca078fcb70f6d16c6da754a0cd44b6e729e
-
+  - go test -coverprofile=c.out -covermode=atomic
+  - GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build
+after_script:
+  - ./cc-test-reporter after-build --coverage-input-type gocov --exit-code $TRAVIS_TEST_RESULT
 deploy:
-    provider: releases
-    file:
-        - derision-smtp
-    skip_cleanup: true
-    on:
-        repo: efritz/derision-smtp
-        tags: true
-    api_key:
-        secure: Wp2De9OkMCPRXu07fVQhlQ5bZDAoCmu4Gugv25ueFe55a7qPjpx75ZwOLc6U2/7REBgF2cfRZzYGahpLvsI3lwIqcui4/CBbI+Fp6yaIA91fghizB+KYd3f57dBnWoizAOWhk08AWd05ZKUCGxN6x8bhQax3FUS8OOH8WhY/v+vBjaRXG0MJoG3CHUGNvaXS5SIN/sl+q+k6bZ129BjfD2sdjxaOTdilk3mhWorJ4bmwOLsKvtfl5hU2TeQ5Kbi4d7uoN7KFfVfAgXmgZxHJO9N5fL+5nJ0t/hKE9cGoaiGt4d5P7vR7Y0jqWqn4TRwxEmvFIiYHZRbv3XcS/wewP6ZKl6+lgCOm/7wIkCq8RlwvZtNT99BYwu61Q4xoyhRIopB6XxwBlYkV04JSuacG09TMS714Q1SZsl4nxG+xgLRjHs51BpI4dXbXScN1mD9rNVyCDi+2lTffykWuxAhdq+WHzfJ3CWI62L3xM76f2fmA9NSBY+92TSf3cga/Qa4Mjs5g3m67POcw5TigZtEmFM54OJ+A5wKcF7KQU/iTNXkmu7GEBsr2fT1MdugRkm5qAQGxJWkxbcjMssw8sPHkCqLDNgsqVZK5qP9Clu05Gpf1DKpajJwwec32I4RkmLDS6TCEn8jSKdLt5qC4JkLDvPD1Dv/yCQUTe+uUQOhSypU=
+  provider: releases
+  file:
+    - derision-smtp
+  skip_cleanup: true
+  on:
+    repo: efritz/derision-smtp
+    tags: true
+  api_key:
+    secure: Wp2De9OkMCPRXu07fVQhlQ5bZDAoCmu4Gugv25ueFe55a7qPjpx75ZwOLc6U2/7REBgF2cfRZzYGahpLvsI3lwIqcui4/CBbI+Fp6yaIA91fghizB+KYd3f57dBnWoizAOWhk08AWd05ZKUCGxN6x8bhQax3FUS8OOH8WhY/v+vBjaRXG0MJoG3CHUGNvaXS5SIN/sl+q+k6bZ129BjfD2sdjxaOTdilk3mhWorJ4bmwOLsKvtfl5hU2TeQ5Kbi4d7uoN7KFfVfAgXmgZxHJO9N5fL+5nJ0t/hKE9cGoaiGt4d5P7vR7Y0jqWqn4TRwxEmvFIiYHZRbv3XcS/wewP6ZKl6+lgCOm/7wIkCq8RlwvZtNT99BYwu61Q4xoyhRIopB6XxwBlYkV04JSuacG09TMS714Q1SZsl4nxG+xgLRjHs51BpI4dXbXScN1mD9rNVyCDi+2lTffykWuxAhdq+WHzfJ3CWI62L3xM76f2fmA9NSBY+92TSf3cga/Qa4Mjs5g3m67POcw5TigZtEmFM54OJ+A5wKcF7KQU/iTNXkmu7GEBsr2fT1MdugRkm5qAQGxJWkxbcjMssw8sPHkCqLDNgsqVZK5qP9Clu05Gpf1DKpajJwwec32I4RkmLDS6TCEn8jSKdLt5qC4JkLDvPD1Dv/yCQUTe+uUQOhSypU=

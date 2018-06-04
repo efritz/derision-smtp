@@ -2,8 +2,8 @@
 
 [![GoDoc](https://godoc.org/github.com/efritz/derision-smtp?status.svg)](https://godoc.org/github.com/efritz/derision-smtp)
 [![Build Status](https://secure.travis-ci.org/efritz/derision-smtp.png)](http://travis-ci.org/efritz/derision-smtp)
-[![Code Coverage](http://codecov.io/github/efritz/derision-smtp/coverage.svg?branch=master)](http://codecov.io/github/efritz/derision-smtp?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/efritz/derision-smtp)](https://goreportcard.com/report/github.com/efritz/derision-smtp)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2c090373318cc66a02e3/maintainability)](https://codeclimate.com/github/efritz/derision-smtp/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2c090373318cc66a02e3/test_coverage)](https://codeclimate.com/github/efritz/derision-smtp/test_coverage)
 
 A mock SMTP server which reflects its payloads to a [Derision API](http://github.com/efritz/derision).
 
